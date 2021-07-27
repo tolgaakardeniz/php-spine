@@ -1,0 +1,49 @@
+<main class="d-flex align-items-stretch">
+	<div class="d-none d-xl-block"><img width="500" src="/files/jpg/laboratory/laboratory-man.jpg"></div>
+	<div class="back p-4 d-flex align-items-center shadow-inset">
+		<div class="max-w-400">
+			<div class="pb-1">
+				<h4>Kullanıcı Giriş</h4><br />
+				<p>Hoşgeldiniz, oturum açmak için kullanıcı adı ve parolanızı girin.</p>
+			</div>
+			<div class="pt-1">
+				{% if errors %}
+				<div class="back rounded-sm shadow-sm p-4">
+				<h4>Hatalar</h4>
+				{% for error in errors %}
+					<div>{{error}}</div>
+				{% endfor %}
+				</div><br />
+				{% endif %}
+				<form id="Oturum" name="Oturum" method="POST" action="/kullanici/giris/">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-users"></i></span>
+						</div>
+						<input data-inputmask-showplaceholder="true" data-inputmask-regex="^([^0-9]+)[A-Za-z0-9-_]{3,24}$" type="text" class="form-control" name="KullaniciAdi" id="KullaniciAdi" placeholder="Kullanıcı Adı" aria-label="Kullanıcı Adı" required value="{{userName}}">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" name="Parola" id="Parola" placeholder="Parola" aria-label="Parola" required value="{{password}}">
+					</div>
+					<div class="form-group d-flex flex-wrap justify-content-between align-items-center">
+						<div class="form-check" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Daha sonra tekrar geldiğinizde otomatik giriş yapmak isterseniz. Burayı işaretleyin.">
+							<input type="checkbox" class="form-check-input" name="BeniHatirla" id="BeniHatirla"{% if remember %}checked{% endif %}>
+							<label class="form-check-label" for="BeniHatirla">Beni Hatırla</label>
+						</div>
+						<div><a href="/kullanici/hatirlat/" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Parolanızı hatırlamıyorsanız buradan tekrar yeniden oluşturabilirsiniz.">Parolamı Hatırlat</a></div>
+					</div>
+					<div>
+						<a href="/" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Ana sayfaya gitmek için tıklayın." class="btn btn-primary rounded-sm float-left mr-1 px-3 py-2"><i class="fa fa-home"></i></a>
+						<a href="/kullanici/olustur/" class="btn btn-primary rounded-sm float-left mr-1  px-3 py-2" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Kayıt olmak için tıklayın."><i class="fa fa-user-plus"></i></a>
+						<button type="submit" class="btn btn-primary rounded-sm waves-effect waves-light float-right px-3 py-2" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oturum açmak için tıklayın."><i class="fa fa-sign-in-alt"></i></button>
+						<br class="clear" />
+					</div>
+					<input type="hidden"  name="Islem" value="Giris" />
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

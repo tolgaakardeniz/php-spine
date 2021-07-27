@@ -1,0 +1,251 @@
+<main>
+    <div class="mx-4 rounded-lg overflow-hidden">
+        <div class="profile-back-container wow fadeInUp" data-wow-duration="500ms" data-wow-delay="250ms" style="background-image: url('{{backImage}}');">
+            <div class="back-opacity-75 h-100 shadow-inset position-relative d-flex align-items-center justify-content-center">
+                <div class="position-absolute bottom-2 right-2 wow zoomIn" data-wow-duration="1000ms" data-wow-delay="1800ms">
+                    {% if isUser == true %}
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Arkaplan fotoğrafı değiştir.">
+                        <button id="profileBackImage" type="button" class="btn btn-icon btn-icon rounded-circle btn-primary m-1 zindex-4"><i class="fa fa-camera"></i></button>
+                    </div>
+                    <form class="d-none" id="profileImageForm" action="javascript:imageForm($('#profileImageForm'));" method="post" enctype="multipart/form-data">
+                        <input type="file" id="profileImageFile" name="file" accept="image/*" />
+                        <input type="hidden" name="Islem" value="profilFotografi" />
+                        <input type="hidden" name="Tur" value="json" />
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center align-items-center position-relative my-2 wow zoomIn" data-wow-duration="1000ms" data-wow-delay="1000ms">
+                                <img class="rounded-circle shadow border-4 border height-170" src="{{profileImage}}" alt="{{fullName}}" /> {% if isUser == true %}
+                                <div class="position-absolute bottom-2" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Profil fotoğrafı değiştir.">
+                                    <button id="profilePhoto" type="button" class="btn btn-icon btn-icon rounded-circle btn-primary"><i class="fa fa-camera"></i></button>
+                                </div>
+                                <form class="d-none" id="profileBackImageForm" action="javascript:imageForm($('#profileBackImageForm'));" method="post" enctype="multipart/form-data">
+                                    <input type="file" id="profileBackImageFile" name="file" accept="image/*" />
+                                    <input type="hidden" name="Islem" value="profilArkaPlani" />
+                                    <input type="hidden" name="Tur" value="json" />
+                                </form>
+                                {% endif %}
+                            </div>
+                            <div id="profileLinks" class="d-flex my-1">
+                                <div class="w-100 text-black">
+                                    <div class="d-flex align-items-stretch h-100 border-bottom-animation-3">
+                                        <a class="white flex-fill py-1 transition wow bounceIn" data-wow-duration="1000ms" data-wow-delay="1100ms" href="/{{userName}}/">
+                                            <div class="d-flex align-items-center justify-content-center h-100">
+                                                <div class="text-center">
+                                                    <div data-name="Mesaj" class="font-weight-bold font-md-5">0</div>
+                                                    <div>Mesajlar</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="white flex-fill py-1 transition wow bounceIn" data-wow-duration="1000ms" data-wow-delay="1200ms" href="/{{userName}}/makaleler/">
+                                            <div class="d-flex align-items-center justify-content-center h-100">
+                                                <div class="text-center">
+                                                    <div data-name="Makale" class="font-weight-bold font-md-5">0</div>
+                                                    <div>Makaleler</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="white flex-fill py-1 transition wow bounceIn" data-wow-duration="1000ms" data-wow-delay="1300ms" href="/{{userName}}/takipciler/">
+                                            <div class="d-flex align-items-center justify-content-center h-100">
+                                                <div class="text-center">
+                                                    <div data-name="Takipci" class="font-weight-bold font-md-5">0</div>
+                                                    <div>Takipçiler</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="white flex-fill py-1 transition wow bounceIn" data-wow-duration="1000ms" data-wow-delay="1400ms" href="/{{userName}}/takip/">
+                                            <div class="d-flex align-items-center justify-content-center h-100">
+                                                <div class="text-center">
+                                                    <div data-name="Takip" class="font-weight-bold font-md-5">0</div>
+                                                    <div>Takip Edilenler</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pb-1 text-center">
+                                <div class="pb-1 pt-3 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="1500ms">
+                                    <strong class="white font-md-4" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="{{userName}}">{{fullName}}</strong>
+                                </div>
+                                <div class="mt-1">
+                                    <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="1700ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="{{fullName}}">
+                                        <img class="rounded-circle border shadow height-30 mr-1" src="{{profileImage}}" alt="{{fullName}}" />
+                                        <div class="font-sm-2"><a href="/{{userName}}/">{{userName}}</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<br />
+    <div class="shadow-sm card-back mx-4 rounded-lg wow fadeIn" data-wow-duration="1000ms" data-wow-delay="700ms">
+        <div class="p-3 text-center">
+            {% if userInfo %}
+            <div class="d-flex align-items-center justify-content-center pb-1 pt-1 mb-3 font-small-3 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="1000ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Hakkında">
+                <div class="opposite-back rounded-sm p-3">{{userInfo}} &#x1F600 &#x1F607
+
+					😀
+					😁
+					😂
+					🤣
+					😃
+					😄
+					😅
+					😆
+					😉
+					😊
+					😋
+					😎
+					😍
+					😘
+					😗
+					😙
+					😚
+					🙂
+					🤗
+					🤩
+					🤔
+					🤨
+					😐
+					😑
+					😶
+					🙄
+					😏
+					😣
+					😥
+					😮
+					🤐
+					😯
+					😪
+					😫
+					😴
+					😌
+					😛
+					😜
+					😝
+					🤤
+					😒
+					😓
+					😔
+					😕
+					🙃
+					🤑
+					😲
+					🙁
+					😖
+					😞
+					😟
+					😤
+					😢
+					😭
+					😦
+					😧
+					😨
+					😩
+					🤯
+					😬
+					😰
+					😱
+					😳
+					🤪
+					😵
+					😡
+					😠
+					🤬
+					😷
+					🤒
+					🤕
+					🤢
+					🤮
+					🤧
+					😇
+					🤠
+					🤡
+					🤥
+					🤫
+					🤭
+					🧐
+					🤓
+					😈
+					👿
+					👹
+					👺
+					💀
+					👻
+					👽
+					🤖
+					💩
+								
+					&#x1F609;
+				</div>
+            </div>
+            {% endif %}
+            <div>
+                {% if userGender is empty or userGender is not empty %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1100ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Cinsiyet">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-{% if userGender is not empty %}fe{% endif %}male"></i></div>
+                    <div class="font-sm-2">{% if userGender is empty %}Erkek{% else %}Bayan{% endif %}</div>
+                </div>
+                {% endif %}
+				{% if createdDate %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1200ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oluşturma Tarihi">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-calendar-alt"></i></div>
+                    <div class="font-sm-2">{{createdDate}}</div>
+                </div>
+                {% endif %}
+				{% if logInDate %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1300ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oturum Açma Zamanı">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-calendar-alt"></i></div>
+                    <div class="font-sm-2">{{logInDate}}</div>
+                </div>
+                {% endif %}
+				{% if lastActivite %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1400ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Son Aktivite Tarihi">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-calendar-alt"></i></div>
+                    <div class="font-sm-2">{{lastActivite}}</div>
+                </div>
+                {% endif %}
+				{% if logOutDate %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1500ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oturum Kapatma Tarihi">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-calendar-alt"></i></div>
+                    <div class="font-sm-2">{{logOutDate}}</div>
+                </div>
+                {% endif %}
+				{% if dateOfBirth %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1600ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Doğum Tarihi">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-birthday-cake"></i></div>
+                    <div class="font-sm-2">{{dateOfBirth}}</div>
+                </div>
+                {% endif %}
+				{% if profileViews is not empty %}
+                <div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1700ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Profil Görüntülenme Sayınız">
+                    <div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-chart-bar"></i></div>
+                    <div class="font-sm-2">{{profileViews}}</div>
+                </div>
+                {% endif %}
+				{% if isUser == true %}
+					{% if logInViews is not empty %}
+					<div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1800ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oturum Açma Sayınız">
+						<div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-chart-bar"></i></div>
+						<div class="font-sm-2">{{logInViews}}</div>
+					</div>
+					{% endif %}
+					{% if logOutViews is not empty %}
+					<div class="d-inline-flex align-items-center justify-content-center opposite-back rounded-pill pr-3 mr-3 mb-3 wow zoomInUp" data-wow-duration="1000ms" data-wow-delay="1800ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" data-original-title="Oturum Kapatma Sayınız">
+						<div class="d-inline-flex align-items-center justify-content-center height-30 width-30 border card-back rounded-pill mr-2"><i class="fa fa-chart-bar"></i></div>
+						<div class="font-sm-2">{{logOutViews}}</div>
+					</div>
+					{% endif %}
+				{% endif %}
+            </div>
+        </div>
+    </div>
+    <br /><br />
+</main>

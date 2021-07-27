@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	{% if description %}<meta name="description" content="{{description}}" /> {% endif %}
+	{% if keywords %}<meta name="keywords" content="{{keywords}}" />{% endif %}
+	{% if redirect %}<meta http-equiv="refresh" content="{{second}};url='{{redirect}}'" />{% endif %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/templates/global/bootstrap/bootstrap.min.css">
+    <!-- Material Design Colors Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/medical/assets/css/colors.min.css">
+    <!-- Fontawesome Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/global/fontawesome/css/all.min.css">
+    <!-- Waves Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/global/waves/waves.min.css">
+
+	{% if styles %} {% for style in styles %}<link rel="stylesheet" type="text/css" href="{{style.href}}" />{% endfor %} {% endif %}
+
+    <!-- Default Site Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/medical/assets/css/default.css">
+    <!-- Sass Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/medical/assets/css/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/templates/medical/assets/ico/medical.ico">
+
+    <title>{{title}}</title>
+</head>
+<body class="login-back">
+    <main class="h-100 d-flex flex-wrap justify-content-center shadow-inset">
+        <div class="d-flex align-items-center">
+            <div class="shadow-lg rounded-lg overflow-hidden m-3">
+				{{viewHtml|raw}}
+            </div>
+        </div>
+    </main>
+    <!-- JQuery Js -->
+    <script src="/templates/global/jquery/jquery-3.5.1.min.js"></script>
+    <!-- Default Js -->
+    <script src="/templates/medical/assets/js/default.js"></script>
+    <!-- Popper Js -->
+    <script src="/templates/global/popper/popper.min.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="/templates/global/bootstrap/bootstrap.min.js"></script>
+    <!-- Screenfull Js -->
+    <script src="/templates/global/all.min.js"></script>
+    <!-- Fontawesome Js -->
+    <script src="/templates/global/fontawesome/js/fontawesome.min.js"></script>
+    <!-- waves Js -->
+    <script src="/templates/global/waves/waves.min.js"></script>
+
+	{% if scripts %} {% for script in scripts %}<script src="{{script.src}}"></script>{% endfor %} {% endif %}
+</body>
+
+</html>

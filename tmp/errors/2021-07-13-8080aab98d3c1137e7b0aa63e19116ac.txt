@@ -1,0 +1,24 @@
+Time : 17:39:57:423616
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'RegExp kontrol tutarsız. RegExp: /^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,})$/ Veri: ddddddd Anahtar: email',
+  2 => '/var/www/medical.ev/PhpProje/Library/Format.php',
+  3 => 48,
+)
+
+Time : 17:39:59:073103
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'RegExp kontrol tutarsız. RegExp: /^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,})$/ Veri: ddddddd@ Anahtar: email',
+  2 => '/var/www/medical.ev/PhpProje/Library/Format.php',
+  3 => 48,
+)
+
+Time : 17:40:05:071878
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'RegExp kontrol tutarsız. RegExp: /^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,})$/ Veri: ddddddd@hotmail.com.t Anahtar: email',
+  2 => '/var/www/medical.ev/PhpProje/Library/Format.php',
+  3 => 48,
+)
+

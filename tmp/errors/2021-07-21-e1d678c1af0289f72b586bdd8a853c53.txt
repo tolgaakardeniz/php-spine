@@ -1,0 +1,32 @@
+Time : 10:05:47:986545
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'Your url was not found. Please check address in address bar.',
+  2 => '/var/www/medical.ev/index.php',
+  3 => 121,
+)
+
+Time : 10:16:00:788863
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'Your url was not found. Please check address in address bar.',
+  2 => '/var/www/medical.ev/index.php',
+  3 => 121,
+)
+
+Time : 10:28:53:578806
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'Your url was not found. Please check address in address bar.',
+  2 => '/var/www/medical.ev/index.php',
+  3 => 121,
+)
+
+Time : 10:29:06:776629
+array (
+  0 => 'Unknown Error (0)',
+  1 => 'Your url was not found. Please check address in address bar.',
+  2 => '/var/www/medical.ev/index.php',
+  3 => 121,
+)
+

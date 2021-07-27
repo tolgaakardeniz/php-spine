@@ -1,0 +1,74 @@
+.profile-back-container {
+    height: 400px;
+    background-position: center center;
+    background-size: 100%;
+    background-size: cover;
+}
+
+.profile-image > div:first-child {
+    position: absolute;
+    top: -100px;
+    left: 50px;
+	z-index: 999;
+}
+
+.profile-image > div:first-child > img {
+    height: 200px;
+    border: 5px solid white !important;
+}
+
+.profile-image > div:first-child > div {
+    text-align: center;
+}
+
+.profile-image > div:first-child > div > button {
+    /*     position: absolute;
+    top: 155px;
+    left: 82px;
+    left: calc(50% - 18px); */
+    margin-top: -75px;
+}
+
+.profile-image > div:last-child {
+    padding-left: 260px;
+}
+
+
+
+.profile-menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    right: 0px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(34, 41, 47, 0.175) !important;
+    height: 80px;
+    padding-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+/*     .profile-back-container {
+        height: 250px;
+    }
+ */
+    .profile-back-container > img {
+        height: 100%;
+        width: inherit;
+    }
+
+    .profile-image > div:last-child {
+        padding-left: 0px;
+        padding-top: 50px;
+    }
+
+    .profile-image > div:first-child {
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-image > div:first-child > img {
+        height: 150px;
+    }
+}

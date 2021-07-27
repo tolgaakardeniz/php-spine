@@ -1,0 +1,53 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+
+	# BLOCK UNNECESSARY REQUEST METHODS
+	#RewriteCond %{REQUEST_METHOD} ^(CONNECT|DEBUG|DELETE|MOVE|PUT|TRACE|TRACK) [NC]
+	#RewriteRule .* - [F,L]
+
+
+	# ALLOW ONLY NECESSARY REQUEST METHODS
+	RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|OPTIONS|POST|PROPFIND) [NC]
+	RewriteRule .* - [F,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+
+	RewriteCond %{REQUEST_URI} !(?:(?:\..*$)|(?:.*[^\/]\/$))
+	RewriteRule ^.*$ /$0/ [R=301,L,NE]
+
+	RewriteCond %{THE_REQUEST} \s[^?]*//
+	RewriteRule ^.*$ /$0 [R=301,L,NE]
+	RewriteRule ^.*/$ index.php?%{QUERY_STRING} [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+	<FilesMatch "\.(ico|jpe?g|png|webp|gif|pdf|doc|mp4|woff2)$">
+        Header set Cache-Control "public, must-revalidate"
+	</FilesMatch>
+
+	<FilesMatch "\.(js|css)$">
+		Header set Cache-Control "public, must-revalidate, max-age=2592000"
+	</FilesMatch>
+</IfModule>
+
+<FilesMatch "\.(gif|jpe?g|png|webp|css|js)$">
+	FileETag INode MTime Size
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+	SetOutputFilter DEFLATE
+	# Don't compress
+	SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|exe|t?gz|zip|bz2|rar)$ no-gzip dont-vary
+</IfModule>
+
+#Dealing with proxy servers
+<IfModule mod_headers.c>
+	Header append Vary User-Agent
+</IfModule>
+
+ErrorDocument 404 /index.php?%{QUERY_STRING}
+ErrorDocument 403 /index.php?%{QUERY_STRING}
+ErrorDocument 500 /index.php?%{QUERY_STRING}

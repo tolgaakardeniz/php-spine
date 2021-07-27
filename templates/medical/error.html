@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> {% if redirect %}
+	<meta http-equiv="refresh" content="{{second}};url='{{redirect}}'" /> {% endif %}
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/templates/global/bootstrap/bootstrap.min.css">
+	<!-- Default Site Css -->
+	<link rel="stylesheet" href="/templates/medical/assets/css/default.css">
+	<!-- Sass Css -->
+	<link rel="stylesheet" href="/templates/medical/assets/css/styles.css">
+	<!-- Material Design Colors Css -->
+	<link rel="stylesheet" href="/templates/medical/assets/css/colors.min.css">
+	<!-- Fontawesome Css -->
+	<link rel="stylesheet" href="/templates/global/fontawesome/css/all.min.css">
+	<!-- Waves Css -->
+	<link rel="stylesheet" href="/templates/global/waves/waves.min.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="/templates/medical/assets/ico/medical.ico">
+
+	<title>{{title}}</title>
+</head>
+
+<body>
+	<main class="h-100 d-flex flex-wrap justify-content-center">
+		<div class="d-flex align-items-center">
+			<div class="rounded-lg overflow-hidden m-3 max-w-700">
+				<article class="d-flex align-items-center justify-content-center flex-column p-3">
+					<header class="d-flex align-items-center justify-content-center flex-column">
+						<a href="/"><img src="/files/png/medical.png" alt="{{siteName}}"></a>
+						<h1>{{title}}</h1>
+					</header>
+					<p class="text-center">
+						{{message}}
+					</p>
+				</article>
+				<br /><br />{% if err|length > 0 %}
+				<article class="back p-4 rounded-md">
+					<header class="d-flex align-items-center justify-content-between opposite-back p-4 rounded-md">
+						<h3 class="m-0">Error Detail</h1><span>{{"now"|date('d/m/Y H:i:s')}}</span>
+					</header><br />
+					{% for item in err %}
+					<p class="px-3">
+						<span>{{loop.index}}) {{item}}</span>
+					</p>
+					{% endfor %}
+				</article><br /><br /> {% endif %}
+			</div>
+		</div>
+	</main>
+	<!-- JQuery Js -->
+	<script src="/templates/global/jquery/jquery-3.5.1.min.js"></script>
+	<!-- Default Js -->
+	<script src="/templates/medical/assets/js/default.js"></script>
+	<!-- Popper Js -->
+	<script src="/templates/global/popper/popper.min.js"></script>
+	<!-- Bootstrap Js -->
+	<script src="/templates/global/bootstrap/bootstrap.min.js"></script>
+	<!-- Screenfull Js -->
+	<script src="/templates/global/all.min.js"></script>
+	<!-- Fontawesome Js -->
+	<script src="/templates/global/fontawesome/js/fontawesome.min.js"></script>
+	<!-- waves Js -->
+	<script src="/templates/global/waves/waves.min.js"></script>
+</body>
+
+</html>

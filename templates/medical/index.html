@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	{% if description %}<meta name="description" content="{{description}}" /> {% endif %}
+	{% if keywords %}<meta name="keywords" content="{{keywords}}" />{% endif %}
+	{% if redirect %}<meta http-equiv="refresh" content="{{second}};url='{{redirect}}'" />{% endif %}
+
+    <!-- All CSS -->
+    <link rel="stylesheet" type="text/css" href="/templates/global/bootstrap/bootstrap.min.css">
+
+	{% if styles %} {% for style in styles %}<link rel="stylesheet" type="text/css" href="{{style.href}}" />{% endfor %} {% endif %}
+
+    <!-- Default Site Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/medical/assets/css/default.css">
+    <!-- Sass Css -->
+    <link rel="stylesheet" type="text/css" href="/templates/medical/assets/css/styles.css">
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/templates/medical/assets/ico/medical.ico">
+
+    <title>{{title}}</title>
+</head>
+<body>
+	<br />
+    <nav class="back shadow-lg position-relative z-index-front wow slideInDown mx-4 rounded-lg px-2" data-wow-duration="500ms" data-wow-delay="0ms">
+        <div class="d-flex align-items-center height-60">
+            <div class="d-flex pl-3">
+                <a class="wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="0ms" href="/"><img class="width-30" src="/files/png/medical.png" alt="{{siteName}}"></a>
+            </div>
+            <div class="d-flex flex-fill justify-content-center">{{pageTopic}}</div>
+            <div class="d-flex align-items-center px-3 h-100">
+                <div class="fa fa-expand font-md-4 mr-2 cursor-pointer wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="250ms" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="left" data-original-title="Tam ekran"></div>
+                <div class="font-sm-2 dropdown h-100 wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+                    <a href="#" class="h-100 mx-2 d-flex align-items-center" id="userMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-110,0"><img class="rounded-fifty-percent object-fit-cover max-w-40 max-h-40 shadow-sm border" src="{{profileImage}}" alt="{{fullName}}" data-toggle="tooltip" data-popup="tooltip-custom" data-placement="left" data-original-title="{{name}}" /></a>
+                    {% include (isUser == true) ? 'usermenu.html' : 'notusermenu.html' %}
+                </div>
+                <div class="position-relative wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="750ms">
+                    <div class="notification"></div>
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="width-20">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z">
+						</path>
+					</svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+	<br />
+    {{viewHtml|raw}}{{footerHtml|raw}}
+	<!-- JQuery Js -->
+    <script src="/templates/global/jquery/jquery-3.5.1.min.js"></script>
+	<!-- Default Js -->
+    <script src="/templates/medical/assets/js/default.js"></script>
+	<!-- Popper Js -->
+    <script src="/templates/global/popper/popper.min.js"></script>
+	<!-- Bootstrap Js -->
+    <script src="/templates/global/bootstrap/bootstrap.min.js"></script>
+	<!-- Screenfull Js -->
+    <script src="/templates/global/all.min.js"></script>
+
+    {% if scripts %} {% for script in scripts %}<script src="{{script.src}}"></script>{% endfor %} {% endif %}
+</body>
+</html>

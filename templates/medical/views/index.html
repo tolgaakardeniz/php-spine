@@ -1,0 +1,41 @@
+<main class="px-4 mt-3">
+	<div class="d-flex justify-content-center align-items-start h-100 shadow rounded-lg overflow-hidden">
+		<div class="d-flex screen-sm-flex-column flex-wrap w-100">
+			<div class="d-flex flex-column flex-grow-1 card-back p-4">
+				<h1 class="light-blue-text text-darken-4">My Webpage</h1>
+				{{ a_variable }}
+				<br>
+				Deneme
+				<br>
+				Deneme
+				<br>
+				Deneme
+				<br>
+				Deneme
+				<br>
+				Deneme
+			</div>
+			<div class="d-flex flex-grow-2 card-back p-4">
+				<ul class="w-100 list-group">
+					{% for item in navigation %}
+					<li class="list-group-item waves-effect waves-light"><a href="{{ item.href }}">{{ item.caption }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="d-flex flex-grow-1 card-back p-4">
+				<ul class="w-100 list-group">
+					{% for item in navigation %}
+					<li class="list-group-item waves-effect waves-light"><a href="{{ item.href }}">{{ item.caption }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="d-flex flex-grow-1 card-back p-4">
+				<ul class="w-100 list-group">
+					{% for item in navigation %}
+					<li class="list-group-item waves-effect waves-light"><a href="{{ item.href }}">{{ item.caption }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</main>
