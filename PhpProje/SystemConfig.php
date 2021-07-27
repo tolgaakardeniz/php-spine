@@ -82,7 +82,8 @@ class SystemConfig
 		}
 	}
 
-	private function setCookieParams($Lax = null, $expiresOrArray = null, $path = "/", $domain = null, $secure = false, $httpOnly = false, $sameSite = "None") {
+	private function setCookieParams($Lax = null, $expiresOrArray = null, $path = "/", $domain = null, $secure = false, $httpOnly = false, $sameSite = "None")
+	{
 
 		// method body
 
@@ -101,8 +102,8 @@ class SystemConfig
 			$httpOnly = true;
 		}
 
-		if(PHP_VERSION_ID < 70300) {
-			session_set_cookie_params($criticalDieTime, '/; samesite='.$sameSite, $_SERVER['HTTP_HOST'], $secure, $httpOnly);
+		if (PHP_VERSION_ID < 70300) {
+			session_set_cookie_params($criticalDieTime, '/; samesite=' . $sameSite, $_SERVER['HTTP_HOST'], $secure, $httpOnly);
 		} else {
 			session_set_cookie_params([
 				'lifetime' => $criticalDieTime,
@@ -119,8 +120,7 @@ class SystemConfig
 	{
 		// method body
 
-		if (is_null($name))
-		{
+		if (is_null($name)) {
 			return $this->array;
 		} else {
 			if (isset($this->array[$name])) {
@@ -310,8 +310,7 @@ class SystemConfig
 
 		try {
 			return $this->getPdo()->connectionStatus;
-		} catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			return false;
 		}
 	}
